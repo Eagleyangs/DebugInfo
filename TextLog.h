@@ -4,18 +4,11 @@
 #include <deque>
 #include <mutex>
 #include <string>
-#include "ILtTrackLog.h"
+#include "ITrackLog.h"
 
 using namespace std;
 
-enum LOGLEVEL
-{
-    LL_DEBUG = 0,
-    LL_INFO = 1,
-    LL_EXCEPTION,
-    LL_CRITICAL,
-};
-class TextLog : public ILtTrackLog
+class TextLog : public ITrackLog
 {
 public:
     static TextLog& Singleton();
@@ -24,20 +17,20 @@ public:
     virtual void Start();
     virtual void Stop();
 
-    virtual void Write(const std::string& fname, const std::string& msg, int level = LTLL_INFO);
+    virtual void Write(const std::string& fname, const std::string& msg, int level = LOGLEVEL::LL_INFO);
 
 private:
     struct LogItem
     {
-        LogItem(const string& f = "", const string& m = "", int l = LL_INFO)
-            :file(f), message(m), level(l)
+        LogItem(const string& f = "", const string& m = "", int lv = LOGLEVEL::LL_INFO)
+            :file(f), message(m), level(lv)
         {}
         string  file;
         string  message;
         int     level;
     };
 
-    TextLog(int lev = LL_INFO);
+    TextLog(int lev = LOGLEVEL::LL_INFO);
     bool PopOneLogItem(LogItem& item);
     void ProcRun();
 

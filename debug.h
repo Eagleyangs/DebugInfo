@@ -19,6 +19,10 @@ using namespace std;
 
 #ifdef _DEBUG
 
+#ifdef _DEBUG
+#define OUTPUT(arg) {fprintf(stdout, "[%s] [%s] [%s/%s:%d] : [%s]\n", __DATE__, __TIME__, __FILE__, __FUNCTION__, __LINE__, arg);}
+#endif
+
 //#define PRINTFILEINFO "file = %s, fun = %s, name = %s, line = %d,\t ", __FILE__, __FUNCTION__, __FUNCDNAME__, __LINE__
 #define PRINTFILEINFO "file = %s, function = %s, line = %d,\t ", __FILE__, __FUNCTION__, __LINE__
 #define PRINTDATEINFO "date = %s, time = %s,\t ", __DATE__ , __TIME__

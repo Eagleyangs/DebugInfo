@@ -1,4 +1,3 @@
-#include "../pch.h"
 #include "IniFile.h"
 
 struct NotSpace

@@ -1,5 +1,4 @@
-﻿#include "../pch.h"
-#include "TextLog.h"
+﻿#include "TextLog.h"
 #ifdef WIN32
 #include "XZip.h"
 #endif
